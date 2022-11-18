@@ -1,16 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.project4.PizzeriaController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project4.MainViewController">
+   <top>
+      <Label text="RU Pizzeria" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="45.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets bottom="20.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
+   <center>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="334.0" prefWidth="480.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleChicagoView" text="Chicago Style">
+                     <VBox.margin>
+                        <Insets bottom="300.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#handleStoreOrdersView" text="Store Orders" />
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </VBox>
+            <VBox prefHeight="334.0" prefWidth="480.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleNewYorkView" text="NY Style">
+                     <VBox.margin>
+                        <Insets bottom="300.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#handleCurrentOrderView" text="Current Order" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>
