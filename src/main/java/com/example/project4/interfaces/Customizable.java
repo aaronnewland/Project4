@@ -1,4 +1,4 @@
-package com.example.project4;
+package com.example.project4.interfaces;
 
 public interface Customizable {
     boolean add(Object obj);

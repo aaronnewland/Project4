@@ -1,4 +1,7 @@
-package com.example.project4;
+package com.example.project4.flavors;
+
+import com.example.project4.Pizza;
+import com.example.project4.enums.Topping;
 
 import java.util.ArrayList;
 

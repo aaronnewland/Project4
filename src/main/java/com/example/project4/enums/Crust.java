@@ -1,4 +1,4 @@
-package com.example.project4;
+package com.example.project4.enums;
 
 public enum Crust {
     DEEP_DISH("Deep Dish"),

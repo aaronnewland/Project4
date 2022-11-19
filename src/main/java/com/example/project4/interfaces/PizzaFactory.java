@@ -1,4 +1,6 @@
-package com.example.project4;
+package com.example.project4.interfaces;
+
+import com.example.project4.Pizza;
 
 public interface PizzaFactory {
     Pizza createDeluxe();
