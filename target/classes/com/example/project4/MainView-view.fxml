@@ -24,12 +24,12 @@
          <children>
             <VBox prefHeight="334.0" prefWidth="480.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#handleChicagoView" text="Chicago Style">
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleChicagoView" text="Chicago Style">
                      <VBox.margin>
-                        <Insets bottom="300.0" />
+                        <Insets bottom="200.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#handleStoreOrdersView" text="Store Orders" />
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleStoreOrdersView" text="Store Orders" />
                </children>
                <HBox.margin>
                   <Insets />
@@ -37,12 +37,12 @@
             </VBox>
             <VBox prefHeight="334.0" prefWidth="480.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#handleNewYorkView" text="NY Style">
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleNewYorkView" text="NY Style">
                      <VBox.margin>
-                        <Insets bottom="300.0" />
+                        <Insets bottom="200.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#handleCurrentOrderView" text="Current Order" />
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleCurrentOrderView" text="Current Order" />
                </children>
             </VBox>
          </children>
