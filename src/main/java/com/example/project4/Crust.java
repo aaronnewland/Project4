@@ -4,7 +4,7 @@ public enum Crust {
     DEEP_DISH("Deep Dish"),
     PAN("Pan"),
     STUFFED("Stuffed"),
-    BROOKLYN("Brooken"),
+    BROOKLYN("Brookyln"),
     THIN("Thin"),
     HAND_TOSSED("Hand Tossed");
 

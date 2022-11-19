@@ -2,9 +2,12 @@ package com.example.project4;
 
 import java.util.ArrayList;
 
-public class Meatza extends Pizza {
+public class Meatzza extends Pizza {
+    private static final double SMALL_PRICE = 15.99;
+    private static final double MEDIUM_PRICE = 17.99;
+    private static final double LARGE_PRICE = 19.99;
 
-    public Meatza() {
+    public Meatzza() {
         ArrayList<Topping> toppings = new ArrayList<>() {
             {
                 add(Topping.SAUSAGE);
@@ -29,6 +32,15 @@ public class Meatza extends Pizza {
 
     @Override
     public double price() {
-        return 0;
+        switch(getSize()) {
+            case SMALL:
+                return SMALL_PRICE;
+            case MEDIUM:
+                return MEDIUM_PRICE;
+            case LARGE:
+                return LARGE_PRICE;
+            default:
+                return 0;
+        }
     }
 }
