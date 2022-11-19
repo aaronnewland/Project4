@@ -7,13 +7,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 public class MainViewController {
 
     @FXML
     protected void handleChicagoView() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("ChicagoView-view.fxml"));
+        URL url = new File("src/main/resources/com/example/project4/ChicagoView-view.fxml").toURI().toURL();;
+        Parent root = FXMLLoader.load(url);
         Stage stage = new Stage();
         stage.setTitle("Chicago Style Pizza");
         stage.setScene(new Scene(root, 650, 700));
@@ -22,7 +25,8 @@ public class MainViewController {
 
     @FXML
     protected void handleNewYorkView() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("NewYorkView-view.fxml"));
+        URL url = new File("src/main/resources/com/example/project4/NewYorkView-view.fxml").toURI().toURL();;
+        Parent root = FXMLLoader.load(url);
         Stage stage = new Stage();
         stage.setTitle("New York Style Pizza");
         stage.setScene(new Scene(root, 650, 700));
@@ -31,7 +35,8 @@ public class MainViewController {
 
     @FXML
     protected void handleCurrentOrderView() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("CurrentOrderView-view.fxml"));
+        URL url = new File("src/main/resources/com/example/project4/CurrentOrderView-view.fxml").toURI().toURL();;
+        Parent root = FXMLLoader.load(url);
         Stage stage = new Stage();
         stage.setTitle("Order Detail");
         stage.setScene(new Scene(root, 600, 400));
@@ -40,7 +45,8 @@ public class MainViewController {
 
     @FXML
     protected void handleStoreOrdersView() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("StoreOrdersView-view.fxml"));
+        URL url = new File("src/main/resources/com/example/project4/StoreOrdersView-view.fxml").toURI().toURL();;
+        Parent root = FXMLLoader.load(url);
         Stage stage = new Stage();
         stage.setTitle("Store Orders");
         stage.setScene(new Scene(root, 600, 400));

@@ -8,12 +8,14 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project4.ChicagoViewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project4.controllers.ChicagoViewController">
    <top>
       <Label text="Chicago Style Pizza" BorderPane.alignment="CENTER">
          <font>
@@ -70,6 +72,11 @@
                         </HBox>
                      </children>
                   </VBox>
+                  <ImageView fitHeight="246.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/chicago-style-pizza.png" />
+                     </image>
+                  </ImageView>
                </children>
             </HBox>
             <HBox prefHeight="290.0" prefWidth="650.0">
