@@ -18,7 +18,6 @@ public class Deluxe extends Pizza {
             }
         };
         setToppings(toppings);
-        setCrust(Crust.DEEP_DISH);
     }
 
     @Override

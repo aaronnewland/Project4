@@ -17,7 +17,6 @@ public class BBQ_Chicken extends Pizza {
             }
         };
         setToppings(toppings);
-        setCrust(Crust.PAN);
     }
 
     @Override

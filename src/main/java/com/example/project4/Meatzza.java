@@ -17,7 +17,6 @@ public class Meatzza extends Pizza {
             }
         };
         setToppings(toppings);
-        setCrust(Crust.STUFFED);
     }
 
     @Override
