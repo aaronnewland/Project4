@@ -2,20 +2,19 @@ package com.example.project4;
 
 import java.util.ArrayList;
 
-public class Deluxe extends Pizza {
+public class BBQ_Chicken extends Pizza {
 
-    public Deluxe() {
+    public BBQ_Chicken() {
         ArrayList<Topping> toppings = new ArrayList<>() {
             {
-                add(Topping.SAUSAGE);
-                add(Topping.PEPPERONI);
+                add(Topping.BBQ_CHICKEN);
                 add(Topping.GREEN_PEPPER);
-                add(Topping.ONION);
-                add(Topping.MUSHROOM);
+                add(Topping.PROVOLONE);
+                add(Topping.CHEDDAR);
             }
         };
         setToppings(toppings);
-        setCrust(Crust.DEEP_DISH);
+        setCrust(Crust.PAN);
     }
 
     @Override
