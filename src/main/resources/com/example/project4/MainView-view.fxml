@@ -3,6 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -22,27 +24,55 @@
    <center>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="334.0" prefWidth="480.0">
+            <VBox alignment="CENTER" prefHeight="634.0" prefWidth="547.0">
                <children>
                   <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleChicagoView" text="Chicago Style">
                      <VBox.margin>
                         <Insets bottom="200.0" />
                      </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/chicago-style-pizza.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleStoreOrdersView" text="Store Orders" />
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleStoreOrdersView" text="Store Orders">
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/store-orders.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
                </children>
                <HBox.margin>
                   <Insets />
                </HBox.margin>
             </VBox>
-            <VBox prefHeight="334.0" prefWidth="480.0">
+            <VBox alignment="CENTER" prefHeight="383.0" prefWidth="300.0">
                <children>
                   <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleNewYorkView" text="NY Style">
                      <VBox.margin>
                         <Insets bottom="200.0" />
                      </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/nyc-style-pizza.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleCurrentOrderView" text="Current Order" />
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleCurrentOrderView" text="Current Order">
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/shopping-cart.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
                </children>
             </VBox>
          </children>
