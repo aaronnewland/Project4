@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 public class StoreOrdersViewController implements Initializable {
     private static ArrayList<Order> storeOrders;
     private ArrayList<Integer> orderNumbers;
-    private ArrayList<Pizza> displayedOrder;
+    private Order displayedOrder;
 
     @FXML
     private ComboBox<Integer> orderNumbersComboBox;
@@ -28,17 +28,19 @@ public class StoreOrdersViewController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         updateStoreOrdersList();
         updateOrderNumbers();
-        displayedOrder = storeOrders == null ? null : storeOrders.get(0).getOrder();
+        displayedOrder = storeOrders == null ? null : storeOrders.get(0);
+        updateOrderTotal();
     }
 
     @FXML
     protected void handleOrderNumberChange() {
         int currentOrderNumber = orderNumbersComboBox.getSelectionModel().getSelectedItem();
         storeOrders.forEach(order -> {
-            if (order.getOrderNumber() == currentOrderNumber) displayedOrder = order.getOrder();
+            if (order.getOrderNumber() == currentOrderNumber) displayedOrder = order;
         });
         displayedOrderList.getItems().clear();
-        displayedOrderList.getItems().addAll(displayedOrder);
+        displayedOrderList.getItems().addAll(displayedOrder.getOrder());
+        updateOrderTotal();
     }
 
     @FXML
@@ -62,9 +64,9 @@ public class StoreOrdersViewController implements Initializable {
 
     private void updateStoreOrdersList() {
         if (noStoreOrders()) return;
-        displayedOrder = storeOrders.get(0).getOrder();
+        displayedOrder = storeOrders.get(0);
         displayedOrderList.getItems().clear();
-        displayedOrderList.getItems().addAll(displayedOrder);
+        displayedOrderList.getItems().addAll(displayedOrder.getOrder());
     }
 
     private void updateOrderNumbers() {
@@ -76,6 +78,10 @@ public class StoreOrdersViewController implements Initializable {
         orderNumbersComboBox.getItems().addAll(orderNumbers);
         if (orderNumbersComboBox.getItems().size() != 0)
             orderNumbersComboBox.getSelectionModel().select(orderNumbersComboBox.getItems().get(0));
+    }
+
+    private void updateOrderTotal() {
+        if (displayedOrder != null) orderTotal.setText(String.format("%.2f", displayedOrder.getOrderTotal()));
     }
 
     private boolean noStoreOrders() {
