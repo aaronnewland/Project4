@@ -27,8 +27,8 @@ public class BuildYourOwn extends Pizza {
 
     @Override
     public double price() {
-        double toppingsPrice = super.getToppings().size() * TOPPING_PRICE;
-        switch(getSize()) {
+        double toppingsPrice = getToppings().size() * TOPPING_PRICE;
+        switch (getSize()) {
             case SMALL:
                 return SMALL_PRICE + toppingsPrice;
             case MEDIUM:

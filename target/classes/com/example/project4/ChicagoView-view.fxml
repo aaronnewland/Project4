@@ -33,14 +33,14 @@
                <children>
                   <VBox prefHeight="293.0" prefWidth="325.0">
                      <children>
-                        <ComboBox fx:id="flavors" prefWidth="150.0">
+                        <ComboBox fx:id="flavors" onAction="#handleSelectFlavor" prefWidth="150.0">
                            <VBox.margin>
                               <Insets left="50.0" top="75.0" />
                            </VBox.margin>
                         </ComboBox>
                         <HBox prefHeight="80.0" prefWidth="325.0">
                            <children>
-                              <RadioButton mnemonicParsing="false" selected="true" text="small">
+                              <RadioButton fx:id="small" mnemonicParsing="false" onAction="#handleSizeChange" selected="true" text="small">
                                  <HBox.margin>
                                     <Insets left="50.0" right="20.0" top="25.0" />
                                  </HBox.margin>
@@ -48,12 +48,12 @@
                                     <ToggleGroup fx:id="PizzaSize" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton mnemonicParsing="false" text="medium" toggleGroup="$PizzaSize">
+                              <RadioButton fx:id="medium" mnemonicParsing="false" onAction="#handleSizeChange" text="medium" toggleGroup="$PizzaSize">
                                  <HBox.margin>
                                     <Insets right="20.0" top="25.0" />
                                  </HBox.margin>
                               </RadioButton>
-                              <RadioButton mnemonicParsing="false" text="large" toggleGroup="$PizzaSize">
+                              <RadioButton fx:id="large" mnemonicParsing="false" onAction="#handleSizeChange" text="large" toggleGroup="$PizzaSize">
                                  <HBox.margin>
                                     <Insets top="25.0" />
                                  </HBox.margin>
@@ -67,7 +67,7 @@
                                     <Insets left="50.0" right="15.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField editable="false" />
+                              <TextField fx:id="crustTextField" editable="false" />
                            </children>
                         </HBox>
                      </children>
@@ -100,7 +100,7 @@
                                     <Insets left="25.0" right="20.0" top="20.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField editable="false">
+                              <TextField fx:id="priceTextField" editable="false">
                                  <HBox.margin>
                                     <Insets top="15.0" />
                                  </HBox.margin>
@@ -111,12 +111,12 @@
                   </VBox>
                   <VBox prefHeight="290.0" prefWidth="90.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" text="&gt;&gt;">
+                        <Button mnemonicParsing="false" onAction="#handleAddTopping" prefHeight="25.0" prefWidth="50.0" text="&gt;&gt;">
                            <VBox.margin>
                               <Insets bottom="50.0" left="10.0" top="75.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" text="&lt;&lt;">
+                        <Button mnemonicParsing="false" onAction="#handleRemoveTopping" prefHeight="25.0" prefWidth="50.0" text="&lt;&lt;">
                            <VBox.margin>
                               <Insets left="10.0" />
                            </VBox.margin>
@@ -130,12 +130,12 @@
                               <Insets left="25.0" />
                            </VBox.margin>
                         </Label>
-                        <ListView prefHeight="225.0" prefWidth="175.0">
+                        <ListView fx:id="selectedToppingsList" prefHeight="225.0" prefWidth="175.0">
                            <VBox.margin>
                               <Insets right="50.0" />
                            </VBox.margin>
                         </ListView>
-                        <Button mnemonicParsing="false" prefWidth="200.0" text="Add to Order">
+                        <Button fx:id="addToOrderBtn" mnemonicParsing="false" prefWidth="200.0" text="Add to Order">
                            <VBox.margin>
                               <Insets left="25.0" top="15.0" />
                            </VBox.margin>

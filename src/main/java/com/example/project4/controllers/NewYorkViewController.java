@@ -1,5 +1,7 @@
 package com.example.project4.controllers;
 
+import com.example.project4.enums.Flavor;
+import com.example.project4.enums.Topping;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -9,24 +11,21 @@ import javafx.scene.control.ListView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.stream.Stream;
 
 public class NewYorkViewController implements Initializable {
-    private ObservableList<String> toppings = FXCollections.observableArrayList("Sausage", "BBQ_Chicken", "Beef",
-            "Ham", "Pepperoni", "GreenPepper", "Onion", "Mushroom", "Pineapple", "BlackOlives",
-            "Provolone", "Spinach", "Cheddar");
-
-    //TODO: change from <String> to some kind of pizza type
-    @FXML
-    private ComboBox<String> flavors;
+    private ObservableList<Topping> toppings = FXCollections.observableArrayList(Topping.values());
 
     @FXML
-    private ListView<String> toppingsList;
+    private ComboBox<Flavor> flavors;
+
+    @FXML
+    private ListView<Topping> toppingsList;
 
     @Override
     public void initialize(URL location, ResourceBundle resource) {
-        flavors.getItems().addAll("Build your own", "Deluxe", "BBQ Chicken", "Meatzza");
-        flavors.getSelectionModel().select("Build your own");
-
+        flavors.getItems().addAll(Flavor.values());
+        flavors.getSelectionModel().select(Flavor.BUILD_YOUR_OWN);
         toppingsList.getItems().addAll(toppings);
     }
 }

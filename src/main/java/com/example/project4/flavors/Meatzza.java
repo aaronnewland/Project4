@@ -1,6 +1,8 @@
 package com.example.project4.flavors;
 
 import com.example.project4.Pizza;
+import com.example.project4.enums.Crust;
+import com.example.project4.enums.Size;
 import com.example.project4.enums.Topping;
 
 import java.util.ArrayList;

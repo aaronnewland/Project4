@@ -13,6 +13,10 @@ public abstract class Pizza implements Customizable {
     private Size size;
     public abstract double price();
 
+    public Pizza() {
+        this.toppings = new ArrayList<>();
+    }
+
     public ArrayList<Topping> getToppings() {
         return toppings;
     }

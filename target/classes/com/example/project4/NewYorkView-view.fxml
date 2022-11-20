@@ -8,6 +8,8 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -70,6 +72,11 @@
                                 </HBox>
                             </children>
                         </VBox>
+                  <ImageView fitHeight="212.0" fitWidth="237.0" nodeOrientation="INHERIT" pickOnBounds="true">
+                     <image>
+                        <Image url="@../../../images/nyc-style-pizza.png" />
+                     </image>
+                  </ImageView>
                     </children>
                 </HBox>
                 <HBox prefHeight="290.0" prefWidth="650.0">
