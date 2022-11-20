@@ -35,7 +35,9 @@ public class CurrentOrderViewController implements Initializable {
 
     @FXML
     protected void handleRemovePizza() {
-
+        Pizza pizzaToRemove = currentOrderList.getSelectionModel().getSelectedItem();
+        removeFromCurrentOrder(pizzaToRemove);
+        updateCurrentOrderList();
     }
 
     @FXML
@@ -46,7 +48,6 @@ public class CurrentOrderViewController implements Initializable {
     @FXML
     protected void handleClearOrder() {
         currentOrder.clear();
-        currentOrderList.getItems().clear();
         updateCurrentOrderList();
     }
 
@@ -62,17 +63,21 @@ public class CurrentOrderViewController implements Initializable {
     }
 
     public void removeFromCurrentOrder(Pizza pizza) {
-        if (currentOrder.contains(pizza)) {
-            currentOrder.remove(pizza);
-            updateCurrentOrderList();
-        }
+        if (pizza == null || !currentOrder.contains(pizza)) return;
+        currentOrder.remove(pizza);
+        updateCurrentOrderList();
     }
 
     private void updateCurrentOrderList() {
         if (currentOrder != null) {
+            clearCurrentOrderList();
             currentOrderList.getItems().addAll(currentOrder);
             getCalculatedPrices();
         }
+    }
+
+    private void clearCurrentOrderList() {
+        currentOrderList.getItems().clear();
     }
 
     private void getCalculatedPrices() {
