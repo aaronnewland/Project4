@@ -7,6 +7,11 @@ public class Order {
     private ArrayList<Pizza> order;
     private double orderTotal;
 
+
+    public Order() {
+
+    }
+
     public Order(int orderNumber, ArrayList<Pizza> order, double orderTotal) {
         this.orderNumber = orderNumber;
         this.order = order;

@@ -26,15 +26,16 @@ public class StoreOrdersViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        displayedOrder = noStoreOrders() ? null : storeOrders.get(0);
         updateStoreOrdersList();
         updateOrderNumbers();
-        displayedOrder = storeOrders == null ? null : storeOrders.get(0);
         updateOrderTotal();
     }
 
     @FXML
     protected void handleOrderNumberChange() {
-        int currentOrderNumber = orderNumbersComboBox.getSelectionModel().getSelectedItem();
+        Integer currentOrderNumber = orderNumbersComboBox.getSelectionModel().getSelectedItem();
+        if (currentOrderNumber == null) return;
         storeOrders.forEach(order -> {
             if (order.getOrderNumber() == currentOrderNumber) displayedOrder = order;
         });
@@ -45,7 +46,17 @@ public class StoreOrdersViewController implements Initializable {
 
     @FXML
     protected void handleCancelOrder() {
-
+        int displayedOrderIndex = storeOrders.indexOf(displayedOrder);
+        storeOrders.remove(displayedOrder);
+        if (storeOrders.isEmpty()) {
+            clearFields();
+            return;
+        }
+        if (storeOrders.get(displayedOrderIndex) != null)
+            displayedOrder = storeOrders.get(displayedOrderIndex);
+        else displayedOrder = storeOrders.get(displayedOrderIndex + 1);
+        updateStoreOrdersList();
+        updateOrderNumbers();
     }
 
     @FXML
@@ -56,15 +67,13 @@ public class StoreOrdersViewController implements Initializable {
     public void addOrder(Order order) {
         if (noStoreOrders()) storeOrders = new ArrayList<>();
         storeOrders.add(order);
+        displayedOrder = storeOrders.get(0);
         updateStoreOrdersList();
         updateOrderNumbers();
-        System.out.println("Store orders after add order: ");
-        storeOrders.forEach(x -> System.out.println(x.getOrder() + "\n"));
     }
 
     private void updateStoreOrdersList() {
         if (noStoreOrders()) return;
-        displayedOrder = storeOrders.get(0);
         displayedOrderList.getItems().clear();
         displayedOrderList.getItems().addAll(displayedOrder.getOrder());
     }
@@ -85,10 +94,17 @@ public class StoreOrdersViewController implements Initializable {
     }
 
     private boolean noStoreOrders() {
-        return storeOrders == null;
+        return storeOrders == null || storeOrders.isEmpty();
     }
 
     private boolean noOrderNumbers() {
-        return orderNumbers == null;
+        return orderNumbers == null || orderNumbers.isEmpty();
+    }
+
+    private void clearFields() {
+        orderNumbers.clear();
+        orderNumbersComboBox.getItems().clear();
+        displayedOrderList.getItems().clear();
+        orderTotal.clear();
     }
 }

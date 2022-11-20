@@ -45,7 +45,6 @@ public class CurrentOrderViewController implements Initializable {
     protected void handlePlaceOrder() {
         Order order = new Order(orderNumber, currentOrder, orderTotal);
         storeOrdersViewController.addOrder(order);
-        System.out.println("ORDER PLACE " +   order.getOrder());
         orderNumber++;
         handleClearOrder();
     }
