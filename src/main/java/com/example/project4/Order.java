@@ -46,14 +46,12 @@ public class Order implements Customizable {
     @Override
     public boolean add(Object obj) {
         if (!(obj instanceof Pizza)) return false;
-        order.add((Pizza) obj);
-        return true;
+        return order.add((Pizza) obj);
     }
 
     @Override
     public boolean remove(Object obj) {
         if (!(obj instanceof Pizza)) return false;
-        order.remove((Pizza) obj);
-        return true;
+        return order.remove((Pizza) obj);
     }
 }
