@@ -2,7 +2,7 @@ package com.example.project4.enums;
 
 public enum PizzaStyle {
     NY("New York Style"),
-    CHICAGO("New York Style");
+    CHICAGO("Chicago Style");
 
     private final String styleName;
 

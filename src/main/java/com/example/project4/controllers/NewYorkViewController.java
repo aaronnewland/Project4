@@ -22,6 +22,7 @@ import java.util.ResourceBundle;
 import java.util.stream.Stream;
 
 public class NewYorkViewController implements Initializable {
+    private static CurrentOrderViewController orderViewController;
     private PizzaFactory pizzaFactory;
     private Pizza pizza;
     private ObservableList<Topping> toppings = FXCollections.observableArrayList(Topping.values());
@@ -96,11 +97,12 @@ public class NewYorkViewController implements Initializable {
     }
 
     @FXML
-    protected void handleAddToOrder() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/project4/CurrentOrderView-view.fxml"));
-        loader.load();
-        CurrentOrderViewController currentOrderViewController = loader.getController();
-        currentOrderViewController.addToCurrentOrder(pizza);
+    protected void handleAddToOrder() {
+        orderViewController.addToCurrentOrder(pizza);
+    }
+
+    public void setOrderViewController(CurrentOrderViewController orderViewController) {
+        this.orderViewController = orderViewController;
     }
 
     private void disableToppings() {

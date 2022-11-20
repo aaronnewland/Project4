@@ -10,16 +10,15 @@ import com.example.project4.pizzastyles.ChicagoPizza;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.scene.control.*;
 
 public class ChicagoViewController implements Initializable {
+    private static CurrentOrderViewController orderViewController;
     private PizzaFactory pizzaFactory;
     private Pizza pizza;
     private ObservableList<Topping> toppings = FXCollections.observableArrayList(Topping.values());
@@ -94,11 +93,12 @@ public class ChicagoViewController implements Initializable {
     }
 
     @FXML
-    protected void handleAddToOrder() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/project4/CurrentOrderView-view.fxml"));
-        loader.load();
-        CurrentOrderViewController currentOrderViewController = loader.getController();
-        currentOrderViewController.addToCurrentOrder(pizza);
+    protected void handleAddToOrder() {
+        orderViewController.addToCurrentOrder(pizza);
+    }
+
+    public void setOrderViewController(CurrentOrderViewController orderViewController) {
+        this.orderViewController = orderViewController;
     }
 
     private void disableToppings() {
