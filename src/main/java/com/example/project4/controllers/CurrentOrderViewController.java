@@ -29,6 +29,7 @@ public class CurrentOrderViewController implements Initializable {
         subtotal = 0;
         salesTax = 0;
         orderTotal = 0;
+        if (currentOrder != null) currentOrderList.getItems().addAll(currentOrder);
     }
 
     @FXML
@@ -54,8 +55,8 @@ public class CurrentOrderViewController implements Initializable {
     public void addToCurrentOrder(Pizza pizza) {
         if (currentOrder == null) currentOrder = new ArrayList<>();
         currentOrder.add(pizza);
-        currentOrderList.getItems().add(pizza);
         orderNumberTextField.setText(orderNumber++ + "");
+        currentOrderList.getItems().addAll(currentOrder);
     }
 
     public void removeFromCurrentOrder(Pizza pizza) {
