@@ -62,7 +62,7 @@ public class Deluxe extends Pizza {
 
     @Override
     public String toString() {
-        return "Deluxe (" + getPizzaStyle() + "- " + getCrust() + ") " + getSize() +
+        return "Deluxe (" + getPizzaStyle() + " - " + getCrust() + "), " + getSize() +
                 ", $" + String.format("%,.2f", price());
     }
 }

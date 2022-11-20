@@ -61,7 +61,7 @@ public class Meatzza extends Pizza {
 
     @Override
     public String toString() {
-        return "Meatza (" + getPizzaStyle() + "- " + getCrust() + ") " + getSize() +
+        return "Meatzza (" + getPizzaStyle() + " - " + getCrust() + "), " + getSize() +
                 ", $" + String.format("%,.2f", price());
     }
 }

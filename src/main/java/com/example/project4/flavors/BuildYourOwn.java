@@ -24,8 +24,7 @@ public class BuildYourOwn extends Pizza {
 
     @Override
     public boolean remove(Object obj) {
-        if (getToppings().isEmpty() || !getToppings().contains((Topping) obj)) return false;
-        else if (getToppings().remove((Topping) obj)) return true;
+        if (getToppings().remove((Topping) obj)) return true;
         return false;
     }
 
@@ -56,7 +55,7 @@ public class BuildYourOwn extends Pizza {
     public String toString() {
         StringBuilder toppings = new StringBuilder();
         getToppings().forEach(topping -> toppings.append(topping + ", "));
-        return "Build your own (" + getPizzaStyle() + "- " + getCrust() + ") " +
+        return "Build your own (" + getPizzaStyle() + " - " + getCrust() + "), " +
                 toppings + getSize() + ", $" + String.format("%,.2f", price());
     }
 }

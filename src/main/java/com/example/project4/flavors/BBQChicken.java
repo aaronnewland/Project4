@@ -1,21 +1,18 @@
 package com.example.project4.flavors;
 
 import com.example.project4.Pizza;
-import com.example.project4.enums.Crust;
 import com.example.project4.enums.PizzaStyle;
-import com.example.project4.enums.Size;
 import com.example.project4.enums.Topping;
 
-import java.text.NumberFormat;
 import java.util.ArrayList;
 
-public class BBQ_Chicken extends Pizza {
+public class BBQChicken extends Pizza {
     private static final double SMALL_PRICE = 13.99;
     private static final double MEDIUM_PRICE = 15.99;
     private static final double LARGE_PRICE = 17.99;
     private PizzaStyle pizzaStyle;
 
-    public BBQ_Chicken(PizzaStyle pizzaStyle) {
+    public BBQChicken(PizzaStyle pizzaStyle) {
         ArrayList<Topping> toppings = new ArrayList<>() {
             {
                 add(Topping.BBQ_CHICKEN);
@@ -62,7 +59,7 @@ public class BBQ_Chicken extends Pizza {
 
     @Override
     public String toString() {
-        return "BBQ Chicken (" + getPizzaStyle() + "- " + getCrust() + ") " + getSize() +
+        return "BBQ Chicken (" + getPizzaStyle() + " - " + getCrust() + "), " + getSize() +
                 ", $" + String.format("%,.2f", price());
     }
 }

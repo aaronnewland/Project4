@@ -86,10 +86,11 @@ public class NewYorkViewController implements Initializable {
 
     @FXML
     protected void handleRemoveTopping() {
-        Topping selectedTopping = toppingsList.getSelectionModel().getSelectedItem();
+        Topping selectedTopping = selectedToppingsList.getSelectionModel().getSelectedItem();
         if (selectedTopping == null) return;
         selectedToppingsList.getItems().remove(selectedTopping);
         pizza.remove(selectedTopping);
+        if (pizza.getToppings().size() < 7) enableToppings();
         getCalculatedPrice();
     }
 

@@ -3,7 +3,7 @@ package com.example.project4.pizzastyles;
 import com.example.project4.enums.Crust;
 import com.example.project4.Pizza;
 import com.example.project4.enums.PizzaStyle;
-import com.example.project4.flavors.BBQ_Chicken;
+import com.example.project4.flavors.BBQChicken;
 import com.example.project4.flavors.BuildYourOwn;
 import com.example.project4.flavors.Deluxe;
 import com.example.project4.flavors.Meatzza;
@@ -26,7 +26,7 @@ public class NYPizza implements PizzaFactory {
 
     @Override
     public Pizza createBBQChicken() {
-        Pizza NYStyleBBQChicken = new BBQ_Chicken(PizzaStyle.NY);
+        Pizza NYStyleBBQChicken = new BBQChicken(PizzaStyle.NY);
         NYStyleBBQChicken.setCrust(Crust.HAND_TOSSED);
         return NYStyleBBQChicken;
     }
