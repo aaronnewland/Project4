@@ -8,17 +8,11 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class CurrentOrderViewController implements Initializable {
     private static StoreOrdersViewController storeOrdersViewController;
-    private static int orderNumber;
-    private static ArrayList<Pizza> currentOrder;
-    private double subtotal;
-    private double salesTax;
-    private final double njSalesTaxPercentage = 0.06625;
-    private double orderTotal;
+    private static Order currentOrder;
 
     @FXML
     private TextField orderNumberTextField, subtotalTextField, salesTaxTextField, orderTotalTextField;
@@ -27,9 +21,7 @@ public class CurrentOrderViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        subtotal = 0;
-        salesTax = 0;
-        orderTotal = 0;
+        if (currentOrder == null) currentOrder = new Order();
         displayOrderNumber();
         updateCurrentOrderList();
     }
@@ -43,15 +35,13 @@ public class CurrentOrderViewController implements Initializable {
 
     @FXML
     protected void handlePlaceOrder() {
-        Order order = new Order(orderNumber, currentOrder, orderTotal);
-        storeOrdersViewController.addOrder(order);
-        orderNumber++;
+        storeOrdersViewController.addOrder(currentOrder);
         handleClearOrder();
     }
 
     @FXML
     protected void handleClearOrder() {
-        currentOrder = null;
+        currentOrder = new Order();
         orderNumberTextField.setText("");
         updateCurrentOrderList();
     }
@@ -61,22 +51,26 @@ public class CurrentOrderViewController implements Initializable {
     }
 
     public void addToCurrentOrder(Pizza pizza) {
-        if (currentOrder == null) currentOrder = new ArrayList<>();
+        if (currentOrder == null) currentOrder = new Order();
         currentOrder.add(pizza);
-        orderNumberTextField.setText(String.valueOf(orderNumber));
+        orderNumberTextField.setText(String.valueOf(currentOrder.getOrderNumber()));
         updateCurrentOrderList();
     }
 
     public void removeFromCurrentOrder(Pizza pizza) {
-        if (pizza == null || !currentOrder.contains(pizza)) return;
+        if (pizza == null) return;
         currentOrder.remove(pizza);
         updateCurrentOrderList();
     }
 
     private void updateCurrentOrderList() {
         clearCurrentOrderList();
+        if (currentOrder == null)  {
+            clearPrices();
+            return;
+        }
         getCalculatedPrices();
-        if (currentOrder != null) currentOrderList.getItems().addAll(currentOrder);
+        currentOrderList.getItems().addAll(currentOrder.getOrder());
     }
 
     private void clearCurrentOrderList() {
@@ -84,17 +78,18 @@ public class CurrentOrderViewController implements Initializable {
     }
 
     private void getCalculatedPrices() {
-        subtotal = 0;
-        if (currentOrder != null) for (Pizza x : currentOrder) subtotal += x.price();
-        salesTax = njSalesTaxPercentage * subtotal;
-        orderTotal = subtotal + salesTax;
-        subtotalTextField.setText(String.format("%.2f", subtotal));
-        salesTaxTextField.setText(String.format("%.2f", salesTax));
-        orderTotalTextField.setText(String.format("%.2f", orderTotal));
+        subtotalTextField.setText(String.format("%.2f", currentOrder.getSubtotal()));
+        salesTaxTextField.setText(String.format("%.2f", currentOrder.getSalesTax()));
+        orderTotalTextField.setText(String.format("%.2f", currentOrder.getOrderTotal()));
+    }
+
+    private void clearPrices() {
+        subtotalTextField.setText(String.format("%.2f", 0.00));
+        salesTaxTextField.setText(String.format("%.2f", 0.00));
+        orderTotalTextField.setText(String.format("%.2f", 0.00));
     }
 
     private void displayOrderNumber() {
-        if (orderNumber == 0) orderNumber = 1;
-        if (currentOrder != null) orderNumberTextField.setText(String.valueOf(orderNumber));
+        if (currentOrder != null) orderNumberTextField.setText(String.valueOf(currentOrder.getOrderNumber()));
     }
 }

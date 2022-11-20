@@ -1,44 +1,59 @@
 package com.example.project4;
 
+import com.example.project4.interfaces.Customizable;
+
 import java.util.ArrayList;
 
-public class Order {
+public class Order implements Customizable {
+    private static int _orderNumber;
     private int orderNumber;
     private ArrayList<Pizza> order;
-    private double orderTotal;
-
+    private final double njSalesTaxPercentage = 0.06625;
 
     public Order() {
-
+        _orderNumber += 1;
+        this.orderNumber = _orderNumber;
+        this.order = new ArrayList<>();
     }
 
-    public Order(int orderNumber, ArrayList<Pizza> order, double orderTotal) {
-        this.orderNumber = orderNumber;
+    public Order(ArrayList<Pizza> order) {
+        this();
         this.order = order;
-        this.orderTotal = orderTotal;
     }
 
     public int getOrderNumber() {
         return orderNumber;
     }
 
-    public void setOrderNumber(int orderNumber) {
-        this.orderNumber = orderNumber;
-    }
-
     public ArrayList<Pizza> getOrder() {
         return order;
     }
 
-    public void setOrder(ArrayList<Pizza> order) {
-        this.order = order;
+    public double getSubtotal() {
+        int subtotal = 0;
+        if (!order.isEmpty()) for (Pizza p : order) subtotal += p.price();
+        return subtotal;
+    }
+
+    public double getSalesTax() {
+        return njSalesTaxPercentage * getSubtotal();
     }
 
     public double getOrderTotal() {
-        return orderTotal;
+        return getSubtotal() + getSalesTax();
     }
 
-    public void setOrderTotal(double orderTotal) {
-        this.orderTotal = orderTotal;
+    @Override
+    public boolean add(Object obj) {
+        if (!(obj instanceof Pizza)) return false;
+        order.add((Pizza) obj);
+        return true;
+    }
+
+    @Override
+    public boolean remove(Object obj) {
+        if (!(obj instanceof Pizza)) return false;
+        order.remove((Pizza) obj);
+        return true;
     }
 }

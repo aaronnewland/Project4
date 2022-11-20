@@ -47,14 +47,14 @@ public class StoreOrdersViewController implements Initializable {
     @FXML
     protected void handleCancelOrder() {
         int displayedOrderIndex = storeOrders.indexOf(displayedOrder);
+        if (displayedOrderIndex == storeOrders.size() - 1) displayedOrderIndex -= 1;
         storeOrders.remove(displayedOrder);
         if (storeOrders.isEmpty()) {
             clearFields();
             return;
         }
-        if (storeOrders.get(displayedOrderIndex) != null)
+        if (storeOrders.get(displayedOrderIndex).getOrder().isEmpty())
             displayedOrder = storeOrders.get(displayedOrderIndex);
-        else displayedOrder = storeOrders.get(displayedOrderIndex + 1);
         updateStoreOrdersList();
         updateOrderNumbers();
     }
