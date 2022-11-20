@@ -27,7 +27,6 @@ public class NewYorkViewController implements Initializable {
     private ObservableList<Topping> toppings = FXCollections.observableArrayList(Topping.values());
     private Flavor selectedFlavor;
     private Size selectedSize;
-    private Parent root;
 
     @FXML
     private ComboBox<Flavor> flavors;
@@ -79,6 +78,7 @@ public class NewYorkViewController implements Initializable {
             if (selectedTopping == null) return;
             selectedToppingsList.getItems().add(selectedTopping);
             pizza.add(selectedTopping);
+            toppingsList.getItems().remove(selectedTopping);
         }
         if (selectedToppingsList.getItems().size() == 7) disableToppings();
         getCalculatedPrice();
@@ -90,6 +90,7 @@ public class NewYorkViewController implements Initializable {
         if (selectedTopping == null) return;
         selectedToppingsList.getItems().remove(selectedTopping);
         pizza.remove(selectedTopping);
+        toppingsList.getItems().add(selectedTopping);
         if (pizza.getToppings().size() < 7) enableToppings();
         getCalculatedPrice();
     }
@@ -97,7 +98,7 @@ public class NewYorkViewController implements Initializable {
     @FXML
     protected void handleAddToOrder() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/project4/CurrentOrderView-view.fxml"));
-        root = loader.load();
+        loader.load();
         CurrentOrderViewController currentOrderViewController = loader.getController();
         currentOrderViewController.addToCurrentOrder(pizza);
     }

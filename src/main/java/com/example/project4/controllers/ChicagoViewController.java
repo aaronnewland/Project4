@@ -10,8 +10,10 @@ import com.example.project4.pizzastyles.ChicagoPizza;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -32,8 +34,6 @@ public class ChicagoViewController implements Initializable {
     private TextField crustTextField, priceTextField;
     @FXML
     private ListView<Topping> toppingsList, selectedToppingsList;
-    @FXML
-    private Button addToOrderBtn;
 
     @Override
     public void initialize(URL location, ResourceBundle resource) {
@@ -76,6 +76,7 @@ public class ChicagoViewController implements Initializable {
                 if (selectedTopping == null) return;
                 selectedToppingsList.getItems().add(selectedTopping);
                 pizza.add(selectedTopping);
+                toppingsList.getItems().remove(selectedTopping);
         }
         if (selectedToppingsList.getItems().size() == 7) disableToppings();
         getCalculatedPrice();
@@ -87,13 +88,17 @@ public class ChicagoViewController implements Initializable {
         if (selectedTopping == null) return;
         selectedToppingsList.getItems().remove(selectedTopping);
         pizza.remove(selectedTopping);
+        toppingsList.getItems().add(selectedTopping);
         if (pizza.getToppings().size() < 7) enableToppings();
         getCalculatedPrice();
     }
 
     @FXML
-    protected void handleAddToOrder() {
-
+    protected void handleAddToOrder() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/project4/CurrentOrderView-view.fxml"));
+        loader.load();
+        CurrentOrderViewController currentOrderViewController = loader.getController();
+        currentOrderViewController.addToCurrentOrder(pizza);
     }
 
     private void disableToppings() {
