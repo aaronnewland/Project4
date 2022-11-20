@@ -30,10 +30,7 @@ public class CurrentOrderViewController implements Initializable {
         salesTax = 0;
         orderTotal = 0;
         displayOrderNumber();
-        if (currentOrder != null) {
-            currentOrderList.getItems().addAll(currentOrder);
-            getCalculatedPrices();
-        }
+        updateCurrentOrderList();
     }
 
     @FXML
@@ -49,7 +46,8 @@ public class CurrentOrderViewController implements Initializable {
     @FXML
     protected void handleClearOrder() {
         currentOrder.clear();
-        getCalculatedPrices();
+        currentOrderList.getItems().clear();
+        updateCurrentOrderList();
     }
 
     public void setStoreOrdersViewController(StoreOrdersViewController storeOrdersViewController) {
@@ -60,12 +58,21 @@ public class CurrentOrderViewController implements Initializable {
         if (currentOrder == null) currentOrder = new ArrayList<>();
         currentOrder.add(pizza);
         orderNumberTextField.setText(String.valueOf(orderNumber));
-        currentOrderList.getItems().addAll(currentOrder);
+        updateCurrentOrderList();
     }
 
     public void removeFromCurrentOrder(Pizza pizza) {
-        if (currentOrder.contains(pizza)) currentOrder.remove(pizza);
-        getCalculatedPrices();
+        if (currentOrder.contains(pizza)) {
+            currentOrder.remove(pizza);
+            updateCurrentOrderList();
+        }
+    }
+
+    private void updateCurrentOrderList() {
+        if (currentOrder != null) {
+            currentOrderList.getItems().addAll(currentOrder);
+            getCalculatedPrices();
+        }
     }
 
     private void getCalculatedPrices() {
@@ -79,6 +86,6 @@ public class CurrentOrderViewController implements Initializable {
     }
 
     private void displayOrderNumber() {
-        orderNumberTextField.setText(String.valueOf(orderNumber));
+        if (currentOrder != null) orderNumberTextField.setText(String.valueOf(orderNumber));
     }
 }
