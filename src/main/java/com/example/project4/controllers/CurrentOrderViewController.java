@@ -1,5 +1,6 @@
 package com.example.project4.controllers;
 
+import com.example.project4.Order;
 import com.example.project4.Pizza;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -42,7 +43,8 @@ public class CurrentOrderViewController implements Initializable {
 
     @FXML
     protected void handlePlaceOrder() {
-
+        Order order = new Order(orderNumber, currentOrder);
+//        storeOrdersViewController.addOrder(order);
     }
 
     @FXML
