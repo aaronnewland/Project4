@@ -12,11 +12,11 @@ import java.util.ResourceBundle;
 
 public class CurrentOrderViewController implements Initializable {
     private StoreOrdersViewController storeOrdersViewController;
-    private static int orderNumber;
+    private static int orderNumber = 1;
     private static ArrayList<Pizza> currentOrder;
     private double subtotal;
     private double salesTax;
-    private final double njSalesTaxPercentage = 6.625;
+    private final double njSalesTaxPercentage = 0.06625;
     private double orderTotal;
 
     @FXML
@@ -29,7 +29,11 @@ public class CurrentOrderViewController implements Initializable {
         subtotal = 0;
         salesTax = 0;
         orderTotal = 0;
-        if (currentOrder != null) currentOrderList.getItems().addAll(currentOrder);
+        displayOrderNumber();
+        if (currentOrder != null) {
+            currentOrderList.getItems().addAll(currentOrder);
+            getCalculatedPrices();
+        }
     }
 
     @FXML
@@ -55,7 +59,7 @@ public class CurrentOrderViewController implements Initializable {
     public void addToCurrentOrder(Pizza pizza) {
         if (currentOrder == null) currentOrder = new ArrayList<>();
         currentOrder.add(pizza);
-        orderNumberTextField.setText(orderNumber++ + "");
+        orderNumberTextField.setText(String.valueOf(orderNumber));
         currentOrderList.getItems().addAll(currentOrder);
     }
 
@@ -66,11 +70,15 @@ public class CurrentOrderViewController implements Initializable {
 
     private void getCalculatedPrices() {
         subtotal = 0;
-        for (Pizza x : currentOrder)  subtotal += x.price();
-        salesTax = subtotal * njSalesTaxPercentage;
+        for (Pizza x : currentOrder) subtotal += x.price();
+        salesTax = njSalesTaxPercentage * subtotal;
         orderTotal = subtotal + salesTax;
-        subtotalTextField.setText(subtotal + "");
-        salesTaxTextField.setText(salesTax + "");
-        orderTotalTextField.setText(orderTotal + "");
+        subtotalTextField.setText(String.format("%.2f", subtotal));
+        salesTaxTextField.setText(String.format("%.2f", salesTax));
+        orderTotalTextField.setText(String.format("%.2f", orderTotal));
+    }
+
+    private void displayOrderNumber() {
+        orderNumberTextField.setText(String.valueOf(orderNumber));
     }
 }
