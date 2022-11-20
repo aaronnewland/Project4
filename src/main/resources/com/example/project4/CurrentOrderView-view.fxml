@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project4.controllers.CurrentOrderViewController">
    <top>
       <Label text="Current Order" BorderPane.alignment="CENTER">
          <font>
@@ -32,10 +31,10 @@
                         <Insets left="25.0" right="25.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField editable="false" />
+                  <TextField fx:id="orderNumberTextField" editable="false" />
                </children>
             </HBox>
-            <ListView prefHeight="200.0" prefWidth="200.0">
+            <ListView fx:id="currentOrderList" prefHeight="200.0" prefWidth="200.0">
                <VBox.margin>
                   <Insets left="25.0" right="25.0" />
                </VBox.margin>
@@ -47,7 +46,7 @@
                         <Insets left="25.0" top="15.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField maxWidth="100.0">
+                  <TextField fx:id="subtotalTextField" maxWidth="100.0">
                      <HBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>
@@ -57,12 +56,12 @@
                         <Insets left="15.0" top="15.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField maxWidth="100.0">
+                  <TextField fx:id="salesTaxTextField" maxWidth="100.0">
                      <HBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>
                   </TextField>
-                  <Button mnemonicParsing="false" prefWidth="125.0" text="Remove Pizza">
+                  <Button mnemonicParsing="false" onAction="#handleRemovePizza" prefWidth="125.0" text="Remove Pizza">
                      <HBox.margin>
                         <Insets left="75.0" top="10.0" />
                      </HBox.margin>
@@ -76,17 +75,17 @@
                         <Insets left="25.0" top="15.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField prefWidth="175.0">
+                  <TextField fx:id="orderTotalTextField" prefWidth="175.0">
                      <HBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>
                   </TextField>
-                  <Button mnemonicParsing="false" prefWidth="125.0" text="Place Order">
+                  <Button mnemonicParsing="false" onAction="#handlePlaceOrder" prefWidth="125.0" text="Place Order">
                      <HBox.margin>
                         <Insets left="25.0" top="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefWidth="125.0" text="Clear Order">
+                  <Button mnemonicParsing="false" onAction="#handleClearOrder" prefWidth="125.0" text="Clear Order">
                      <HBox.margin>
                         <Insets left="15.0" top="10.0" />
                      </HBox.margin>

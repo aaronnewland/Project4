@@ -11,9 +11,12 @@ import com.example.project4.pizzastyles.NYPizza;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.stream.Stream;
@@ -24,6 +27,7 @@ public class NewYorkViewController implements Initializable {
     private ObservableList<Topping> toppings = FXCollections.observableArrayList(Topping.values());
     private Flavor selectedFlavor;
     private Size selectedSize;
+    private Parent root;
 
     @FXML
     private ComboBox<Flavor> flavors;
@@ -90,8 +94,11 @@ public class NewYorkViewController implements Initializable {
     }
 
     @FXML
-    protected void handleAddToOrder() {
-
+    protected void handleAddToOrder() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/project4/CurrentOrderView-view.fxml"));
+        root = loader.load();
+        CurrentOrderViewController currentOrderViewController = loader.getController();
+        currentOrderViewController.addToCurrentOrder(pizza);
     }
 
     private void disableToppings() {

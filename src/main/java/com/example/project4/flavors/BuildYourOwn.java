@@ -1,6 +1,7 @@
 package com.example.project4.flavors;
 
 import com.example.project4.Pizza;
+import com.example.project4.enums.PizzaStyle;
 import com.example.project4.enums.Topping;
 
 public class BuildYourOwn extends Pizza {
@@ -8,8 +9,11 @@ public class BuildYourOwn extends Pizza {
     private static final double MEDIUM_PRICE = 10.99;
     private static final double LARGE_PRICE = 12.99;
     private static final double TOPPING_PRICE = 1.59;
+    private PizzaStyle pizzaStyle;
 
-    public BuildYourOwn() { }
+    public BuildYourOwn(PizzaStyle pizzaStyle) {
+        setPizzaStyle(pizzaStyle);
+    }
 
     @Override
     public boolean add(Object obj) {
@@ -38,5 +42,21 @@ public class BuildYourOwn extends Pizza {
             default:
                 return 0;
         }
+    }
+
+    public PizzaStyle getPizzaStyle() {
+        return this.pizzaStyle;
+    }
+
+    public void setPizzaStyle(PizzaStyle pizzaStyle) {
+        this.pizzaStyle = pizzaStyle;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder toppings = new StringBuilder();
+        getToppings().forEach(topping -> toppings.append(topping + ", "));
+        return "Build your own (" + getPizzaStyle() + "- " + getCrust() + ") " +
+                toppings + getSize() + ", $" + String.format("%,.2f", price());
     }
 }
