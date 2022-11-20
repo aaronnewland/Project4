@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class CurrentOrderViewController implements Initializable {
-    private StoreOrdersViewController storeOrdersViewController;
-    private static int orderNumber = 1;
+    private static StoreOrdersViewController storeOrdersViewController;
+    private static int orderNumber;
     private static ArrayList<Pizza> currentOrder;
     private double subtotal;
     private double salesTax;
@@ -43,13 +43,17 @@ public class CurrentOrderViewController implements Initializable {
 
     @FXML
     protected void handlePlaceOrder() {
-        Order order = new Order(orderNumber, currentOrder);
-//        storeOrdersViewController.addOrder(order);
+        Order order = new Order(orderNumber, currentOrder, orderTotal);
+        storeOrdersViewController.addOrder(order);
+        System.out.println("ORDER PLACE " +   order.getOrder());
+        orderNumber++;
+        handleClearOrder();
     }
 
     @FXML
     protected void handleClearOrder() {
-        currentOrder.clear();
+        currentOrder = null;
+        orderNumberTextField.setText("");
         updateCurrentOrderList();
     }
 
@@ -71,20 +75,18 @@ public class CurrentOrderViewController implements Initializable {
     }
 
     private void updateCurrentOrderList() {
-        if (currentOrder != null) {
-            clearCurrentOrderList();
-            currentOrderList.getItems().addAll(currentOrder);
-            getCalculatedPrices();
-        }
+        clearCurrentOrderList();
+        getCalculatedPrices();
+        if (currentOrder != null) currentOrderList.getItems().addAll(currentOrder);
     }
 
     private void clearCurrentOrderList() {
-        currentOrderList.getItems().clear();
+        if (currentOrderList.getItems() != null) currentOrderList.getItems().clear();
     }
 
     private void getCalculatedPrices() {
         subtotal = 0;
-        for (Pizza x : currentOrder) subtotal += x.price();
+        if (currentOrder != null) for (Pizza x : currentOrder) subtotal += x.price();
         salesTax = njSalesTaxPercentage * subtotal;
         orderTotal = subtotal + salesTax;
         subtotalTextField.setText(String.format("%.2f", subtotal));
@@ -93,6 +95,7 @@ public class CurrentOrderViewController implements Initializable {
     }
 
     private void displayOrderNumber() {
+        if (orderNumber == 0) orderNumber = 1;
         if (currentOrder != null) orderNumberTextField.setText(String.valueOf(orderNumber));
     }
 }
