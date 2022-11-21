@@ -49,7 +49,6 @@ public class StoreOrder implements Customizable {
     public void export() throws IOException {
         File file = new File("StoreOrder.txt");
         if (file.exists()) {
-            System.out.println("File already exists.");
             System.exit(1);
         }
         PrintWriter pw = new PrintWriter(file);
