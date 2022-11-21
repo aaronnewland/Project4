@@ -54,4 +54,13 @@ public class Order implements Customizable {
         if (!(obj instanceof Pizza)) return false;
         return order.remove((Pizza) obj);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        order.forEach((pizza) -> sb.append(pizza + "\n"));
+        int last = sb.lastIndexOf("\n");
+        if (last >= 0) { sb.delete(last, sb.length()); }
+        return sb.toString();
+    }
 }

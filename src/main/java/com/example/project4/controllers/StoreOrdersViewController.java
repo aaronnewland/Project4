@@ -9,6 +9,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -59,8 +60,8 @@ public class StoreOrdersViewController implements Initializable {
     }
 
     @FXML
-    protected void handleExportStoreOrders() {
-
+    protected void handleExportStoreOrders() throws IOException {
+        storeOrder.export();
     }
 
     public void addOrder(Order order) {

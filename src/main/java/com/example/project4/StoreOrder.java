@@ -2,6 +2,9 @@ package com.example.project4;
 
 import com.example.project4.interfaces.Customizable;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class StoreOrder implements Customizable {
@@ -43,7 +46,19 @@ public class StoreOrder implements Customizable {
         return res;
     }
 
-    public void export() {
-
+    public void export() throws IOException {
+        File file = new File("StoreOrder.txt");
+        if (file.exists()) {
+            System.out.println("File already exists.");
+            System.exit(1);
+        }
+        PrintWriter pw = new PrintWriter(file);
+        orders.forEach(order -> {
+            pw.println("ORDER: #" + order.getOrderNumber());
+            pw.println(order);
+            pw.println("[SUBTOTAL: $" + order.getSubtotal() + " | SALES TAX: $ " + order.getSalesTax() +
+                    " | ORDER TOTAL: $" + order.getOrderTotal() + "]\n");
+        });
+        pw.close();
     }
 }

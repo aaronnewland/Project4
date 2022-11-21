@@ -32,7 +32,7 @@
                         <Insets top="15.0" />
                      </HBox.margin>
                   </Label>
-                  <ComboBox fx:id="orderNumbersComboBox" onAction="#handleOrderNumberChange" prefWidth="125.0">
+            <ComboBox fx:id="orderNumbersComboBox" onAction="#handleOrderNumberChange" prefWidth="125.0">
                      <HBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>

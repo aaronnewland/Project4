@@ -35,6 +35,7 @@ public class CurrentOrderViewController implements Initializable {
 
     @FXML
     protected void handlePlaceOrder() {
+        if (currentOrder.getOrder().isEmpty()) return;
         storeOrdersViewController.addOrder(currentOrder);
         handleClearOrder();
     }
