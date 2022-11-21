@@ -18,6 +18,9 @@ class BuildYourOwnTest {
     private PizzaFactory chicagoPizzaFactory = new ChicagoPizza();
     private PizzaFactory nyPizzaFactory = new NYPizza();
 
+    /**
+     * Test small chicago build your own pizza with no toppings
+     */
     @Test
     void smallChicagoByoNoTopping() {
         Pizza smallChicagoByoNoTopping = chicagoPizzaFactory.createBuildYourOwn();
@@ -25,6 +28,9 @@ class BuildYourOwnTest {
         assertEquals(smallChicagoByoNoTopping.price(), smallBuildYourOwnPrice);
     }
 
+    /**
+     * Test small chicago build your own pizza with one topping
+     */
     @Test
     void smallChicagoByoOneTopping() {
         Pizza smallChicagoByoOneTopping = chicagoPizzaFactory.createBuildYourOwn();
@@ -33,6 +39,9 @@ class BuildYourOwnTest {
         assertEquals(smallChicagoByoOneTopping.price(), smallBuildYourOwnPrice + toppingPrice);
     }
 
+    /**
+     * Test small chicago build your own pizza with two toppings
+     */
     @Test
     void smallChicagoByoTwoTopping() {
         Pizza smallChicagoByoTwoTopping = chicagoPizzaFactory.createBuildYourOwn();
@@ -42,6 +51,9 @@ class BuildYourOwnTest {
         assertEquals(smallChicagoByoTwoTopping.price(), smallBuildYourOwnPrice + (toppingPrice * 2));
     }
 
+    /**
+     * Test small chicago build your own pizza with three toppings
+     */
     @Test
     void smallChicagoByoThreeTopping() {
         Pizza smallChicagoByoThreeTopping = chicagoPizzaFactory.createBuildYourOwn();
@@ -52,6 +64,9 @@ class BuildYourOwnTest {
         assertEquals(smallChicagoByoThreeTopping.price(), smallBuildYourOwnPrice + (toppingPrice * 3));
     }
 
+    /**
+     * Test small chicago build your own pizza with four toppings
+     */
     @Test
     void smallChicagoByoFourTopping() {
         Pizza smallChicagoByoFourTopping = chicagoPizzaFactory.createBuildYourOwn();
@@ -63,6 +78,9 @@ class BuildYourOwnTest {
         assertEquals(smallChicagoByoFourTopping.price(), smallBuildYourOwnPrice + (toppingPrice * 4));
     }
 
+    /**
+     * Test small chicago build your own pizza with five toppings
+     */
     @Test
     void smallChicagoByoFiveTopping() {
         Pizza smallChicagoByoFiveTopping = chicagoPizzaFactory.createBuildYourOwn();
@@ -75,6 +93,9 @@ class BuildYourOwnTest {
         assertEquals(smallChicagoByoFiveTopping.price(), smallBuildYourOwnPrice + (toppingPrice * 5));
     }
 
+    /**
+     * Test small chicago build your own pizza with six toppings
+     */
     @Test
     void smallChicagoByoSixTopping() {
         Pizza smallChicagoByoSixTopping = chicagoPizzaFactory.createBuildYourOwn();
@@ -88,6 +109,9 @@ class BuildYourOwnTest {
         assertEquals(smallChicagoByoSixTopping.price(), smallBuildYourOwnPrice + (toppingPrice * 6));
     }
 
+    /**
+     * Test small chicago build your own pizza with seven toppings
+     */
     @Test
     void smallChicagoByoSevenTopping() {
         Pizza smallChicagoByoSevenTopping = chicagoPizzaFactory.createBuildYourOwn();
@@ -101,6 +125,11 @@ class BuildYourOwnTest {
         assertTrue(smallChicagoByoSevenTopping.add(Topping.MUSHROOM));
         assertEquals(smallChicagoByoSevenTopping.price(), smallBuildYourOwnPrice + (toppingPrice * 7));
     }
+
+    /**
+     * Test small chicago build your own pizza with eight toppings and expect to
+     * return false when we try to add the eighth topping
+     */
 
     @Test
     void smallChicagoByoEightTopping() {
@@ -116,6 +145,9 @@ class BuildYourOwnTest {
         assertFalse(smallChicagoByoEightTopping.add(Topping.PINEAPPLE));
     }
 
+    /**
+     * Test medium chicago build your own pizza with no toppings
+     */
     @Test
     void mediumChicagoByoNoTopping() {
         Pizza mediumChicagoByoNoTopping = chicagoPizzaFactory.createBuildYourOwn();
@@ -123,6 +155,9 @@ class BuildYourOwnTest {
         assertEquals(mediumChicagoByoNoTopping.price(), mediumBuildYourOwnPrice);
     }
 
+    /**
+     * Test medium chicago build your own pizza with one topping
+     */
     @Test
     void mediumChicagoByoOneTopping() {
         Pizza mediumChicagoByoOneTopping = chicagoPizzaFactory.createBuildYourOwn();
@@ -131,6 +166,9 @@ class BuildYourOwnTest {
         assertEquals(mediumChicagoByoOneTopping.price(), mediumBuildYourOwnPrice + toppingPrice);
     }
 
+    /**
+     * Test medium chicago build your own pizza with two toppings
+     */
     @Test
     void mediumChicagoByoTwoTopping() {
         Pizza mediumChicagoByoTwoTopping = chicagoPizzaFactory.createBuildYourOwn();
@@ -140,6 +178,9 @@ class BuildYourOwnTest {
         assertEquals(mediumChicagoByoTwoTopping.price(), mediumBuildYourOwnPrice + (toppingPrice * 2));
     }
 
+    /**
+     * Test medium chicago build your own pizza with three toppings
+     */
     @Test
     void mediumChicagoByoThreeTopping() {
         Pizza mediumChicagoByoThreeTopping = chicagoPizzaFactory.createBuildYourOwn();
@@ -150,6 +191,9 @@ class BuildYourOwnTest {
         assertEquals(mediumChicagoByoThreeTopping.price(), mediumBuildYourOwnPrice + (toppingPrice * 3));
     }
 
+    /**
+     * Test medium chicago build your own pizza with four toppings
+     */
     @Test
     void mediumChicagoByoFourTopping() {
         Pizza mediumChicagoByoFourTopping = chicagoPizzaFactory.createBuildYourOwn();
@@ -161,6 +205,9 @@ class BuildYourOwnTest {
         assertEquals(mediumChicagoByoFourTopping.price(), mediumBuildYourOwnPrice + (toppingPrice * 4));
     }
 
+    /**
+     * Test medium chicago build your own pizza with five toppings
+     */
     @Test
     void mediumChicagoByoFiveTopping() {
         Pizza mediumChicagoByoFiveTopping = chicagoPizzaFactory.createBuildYourOwn();
@@ -173,6 +220,9 @@ class BuildYourOwnTest {
         assertEquals(mediumChicagoByoFiveTopping.price(), mediumBuildYourOwnPrice + (toppingPrice * 5));
     }
 
+    /**
+     * Test medium chicago build your own pizza with six toppings
+     */
     @Test
     void mediumChicagoByoSixTopping() {
         Pizza mediumChicagoByoSixTopping = chicagoPizzaFactory.createBuildYourOwn();
@@ -186,6 +236,9 @@ class BuildYourOwnTest {
         assertEquals(mediumChicagoByoSixTopping.price(), mediumBuildYourOwnPrice + (toppingPrice * 6));
     }
 
+    /**
+     * Test medium chicago build your own pizza with seven toppings
+     */
     @Test
     void mediumChicagoByoSevenTopping() {
         Pizza mediumChicagoByoSevenTopping = chicagoPizzaFactory.createBuildYourOwn();
@@ -200,6 +253,10 @@ class BuildYourOwnTest {
         assertEquals(mediumChicagoByoSevenTopping.price(), mediumBuildYourOwnPrice + (toppingPrice * 7));
     }
 
+    /**
+     * Test medium chicago build your own pizza with eight toppings and expect to
+     * return false when we try to add the eighth topping
+     */
     @Test
     void mediumChicagoByoEightTopping() {
         Pizza mediumChicagoEightTopping = chicagoPizzaFactory.createBuildYourOwn();
@@ -213,6 +270,10 @@ class BuildYourOwnTest {
         assertTrue(mediumChicagoEightTopping.add(Topping.MUSHROOM));
         assertFalse(mediumChicagoEightTopping.add(Topping.PINEAPPLE));
     }
+
+    /**
+     * Test large chicago build your own pizza with no toppings
+     */
     @Test
     void largeChicagoByoNoTopping() {
         Pizza largeChicagoByoNoTopping = chicagoPizzaFactory.createBuildYourOwn();
@@ -220,6 +281,9 @@ class BuildYourOwnTest {
         assertEquals(largeChicagoByoNoTopping.price(), largeBuildYourOwnPrice);
     }
 
+    /**
+     * Test large chicago build your own pizza with one topping
+     */
     @Test
     void largeChicagoByoOneTopping() {
         Pizza largeChicagoByoOneTopping = chicagoPizzaFactory.createBuildYourOwn();
@@ -228,6 +292,9 @@ class BuildYourOwnTest {
         assertEquals(largeChicagoByoOneTopping.price(), largeBuildYourOwnPrice + toppingPrice);
     }
 
+    /**
+     * Test large chicago build your own pizza with two toppings
+     */
     @Test
     void largeChicagoByoTwoTopping() {
         Pizza largeChicagoByoTwoTopping = chicagoPizzaFactory.createBuildYourOwn();
@@ -237,6 +304,9 @@ class BuildYourOwnTest {
         assertEquals(largeChicagoByoTwoTopping.price(), largeBuildYourOwnPrice + (toppingPrice * 2));
     }
 
+    /**
+     * Test large chicago build your own pizza with three toppings
+     */
     @Test
     void largeChicagoByoThreeTopping() {
         Pizza largeChicagoByoThreeTopping = chicagoPizzaFactory.createBuildYourOwn();
@@ -247,6 +317,9 @@ class BuildYourOwnTest {
         assertEquals(largeChicagoByoThreeTopping.price(), largeBuildYourOwnPrice + (toppingPrice * 3));
     }
 
+    /**
+     * Test large chicago build your own pizza with four toppings
+     */
     @Test
     void largeChicagoByoFourTopping() {
         Pizza largeChicagoByoFourTopping = chicagoPizzaFactory.createBuildYourOwn();
@@ -258,6 +331,9 @@ class BuildYourOwnTest {
         assertEquals(largeChicagoByoFourTopping.price(), largeBuildYourOwnPrice + (toppingPrice * 4));
     }
 
+    /**
+     * Test large chicago build your own pizza with five toppings
+     */
     @Test
     void largeChicagoByoFiveTopping() {
         Pizza largeChicagoByoFiveTopping = chicagoPizzaFactory.createBuildYourOwn();
@@ -270,6 +346,9 @@ class BuildYourOwnTest {
         assertEquals(largeChicagoByoFiveTopping.price(), largeBuildYourOwnPrice + (toppingPrice * 5));
     }
 
+    /**
+     * Test large chicago build your own pizza with six toppings
+     */
     @Test
     void largeChicagoByoSixTopping() {
         Pizza largeChicagoByoSixTopping = chicagoPizzaFactory.createBuildYourOwn();
@@ -283,6 +362,9 @@ class BuildYourOwnTest {
         assertEquals(largeChicagoByoSixTopping.price(), largeBuildYourOwnPrice + (toppingPrice * 6));
     }
 
+    /**
+     * Test large chicago build your own pizza with seven toppings
+     */
     @Test
     void largeChicagoByoSevenTopping() {
         Pizza largeChicagoByoSevenTopping = chicagoPizzaFactory.createBuildYourOwn();
@@ -297,6 +379,27 @@ class BuildYourOwnTest {
         assertEquals(largeChicagoByoSevenTopping.price(), largeBuildYourOwnPrice + (toppingPrice * 7));
     }
 
+    /**
+     * Test large chicago build your own pizza with eight toppings and expect to
+     * return false when we try to add the eighth topping
+     */
+    @Test
+    void largeChicagoByoEightTopping() {
+        Pizza largeChicagoByoSevenTopping = chicagoPizzaFactory.createBuildYourOwn();
+        largeChicagoByoSevenTopping.setSize(Size.LARGE);
+        assertTrue(largeChicagoByoSevenTopping.add(Topping.SAUSAGE));
+        assertTrue(largeChicagoByoSevenTopping.add(Topping.BEEF));
+        assertTrue(largeChicagoByoSevenTopping.add(Topping.HAM));
+        assertTrue(largeChicagoByoSevenTopping.add(Topping.PEPPERONI));
+        assertTrue(largeChicagoByoSevenTopping.add(Topping.GREEN_PEPPER));
+        assertTrue(largeChicagoByoSevenTopping.add(Topping.ONION));
+        assertTrue(largeChicagoByoSevenTopping.add(Topping.MUSHROOM));
+        assertFalse(largeChicagoByoSevenTopping.add(Topping.PINEAPPLE));
+    }
+
+    /**
+     * Test small NewYork build your own pizza with no toppings
+     */
     @Test
     void smallNewYorkByoNoTopping() {
         Pizza smallNewYorkByoNoTopping = nyPizzaFactory.createBuildYourOwn();
@@ -304,6 +407,9 @@ class BuildYourOwnTest {
         assertEquals(smallNewYorkByoNoTopping.price(), smallBuildYourOwnPrice);
     }
 
+    /**
+     * Test small NewYork build your own pizza with one topping
+     */
     @Test
     void smallNewYorkByoOneTopping() {
         Pizza smallNewYorkByoOneTopping = nyPizzaFactory.createBuildYourOwn();
@@ -312,6 +418,9 @@ class BuildYourOwnTest {
         assertEquals(smallNewYorkByoOneTopping.price(), smallBuildYourOwnPrice + toppingPrice);
     }
 
+    /**
+     * Test small NewYork build your own pizza with two toppings
+     */
     @Test
     void smallNewYorkByoTwoTopping() {
         Pizza smallNewYorkByoTwoTopping = nyPizzaFactory.createBuildYourOwn();
@@ -321,6 +430,9 @@ class BuildYourOwnTest {
         assertEquals(smallNewYorkByoTwoTopping.price(), smallBuildYourOwnPrice + (toppingPrice * 2));
     }
 
+    /**
+     * Test small NewYork build your own pizza with three toppings
+     */
     @Test
     void smallNewYorkByoThreeTopping() {
         Pizza smallNewYorkByoThreeTopping = nyPizzaFactory.createBuildYourOwn();
@@ -331,6 +443,9 @@ class BuildYourOwnTest {
         assertEquals(smallNewYorkByoThreeTopping.price(), smallBuildYourOwnPrice + (toppingPrice * 3));
     }
 
+    /**
+     * Test small NewYork build your own pizza with four toppings
+     */
     @Test
     void smallNewYorkByoFourTopping() {
         Pizza smallNewYorkByoFourTopping = nyPizzaFactory.createBuildYourOwn();
@@ -342,6 +457,9 @@ class BuildYourOwnTest {
         assertEquals(smallNewYorkByoFourTopping.price(), smallBuildYourOwnPrice + (toppingPrice * 4));
     }
 
+    /**
+     * Test small NewYork build your own pizza with five toppings
+     */
     @Test
     void smallNewYorkByoFiveTopping() {
         Pizza smallNewYorkByoFiveTopping = nyPizzaFactory.createBuildYourOwn();
@@ -354,6 +472,9 @@ class BuildYourOwnTest {
         assertEquals(smallNewYorkByoFiveTopping.price(), smallBuildYourOwnPrice + (toppingPrice * 5));
     }
 
+    /**
+     * Test small NewYork build your own pizza with six toppings
+     */
     @Test
     void smallNewYorkByoSixTopping() {
         Pizza smallNewYorkByoSixTopping = nyPizzaFactory.createBuildYourOwn();
@@ -367,6 +488,9 @@ class BuildYourOwnTest {
         assertEquals(smallNewYorkByoSixTopping.price(), smallBuildYourOwnPrice + (toppingPrice * 6));
     }
 
+    /**
+     * Test small NewYork build your own pizza with seven toppings
+     */
     @Test
     void smallNewYorkByoSevenTopping() {
         Pizza smallNewYorkByoSevenTopping = nyPizzaFactory.createBuildYourOwn();
@@ -381,6 +505,10 @@ class BuildYourOwnTest {
         assertEquals(smallNewYorkByoSevenTopping.price(), smallBuildYourOwnPrice + (toppingPrice * 7));
     }
 
+    /**
+     * Test small New York build your own pizza with eight toppings and expect to
+     * return false when we try to add the eighth topping
+     */
     @Test
     void smallNewYorkByoEightTopping() {
         Pizza smallNewYorkByoEightTopping = nyPizzaFactory.createBuildYourOwn();
@@ -395,6 +523,9 @@ class BuildYourOwnTest {
         assertFalse(smallNewYorkByoEightTopping.add(Topping.PINEAPPLE));
     }
 
+    /**
+     * Test medium NewYork build your own pizza with no toppings
+     */
     @Test
     void mediumNewYorkByoNoTopping() {
         Pizza mediumNewYorkByoNoTopping = nyPizzaFactory.createBuildYourOwn();
@@ -402,6 +533,9 @@ class BuildYourOwnTest {
         assertEquals(mediumNewYorkByoNoTopping.price(), mediumBuildYourOwnPrice);
     }
 
+    /**
+     * Test medium NewYork build your own pizza with one topping
+     */
     @Test
     void mediumNewYorkByoOneTopping() {
         Pizza mediumNewYorkByoOneTopping = nyPizzaFactory.createBuildYourOwn();
@@ -410,6 +544,9 @@ class BuildYourOwnTest {
         assertEquals(mediumNewYorkByoOneTopping.price(), mediumBuildYourOwnPrice + toppingPrice);
     }
 
+    /**
+     * Test medium NewYork build your own pizza with two toppings
+     */
     @Test
     void mediumNewYorkByoTwoTopping() {
         Pizza mediumNewYorkByoTwoTopping = nyPizzaFactory.createBuildYourOwn();
@@ -419,6 +556,9 @@ class BuildYourOwnTest {
         assertEquals(mediumNewYorkByoTwoTopping.price(), mediumBuildYourOwnPrice + (toppingPrice * 2));
     }
 
+    /**
+     * Test medium NewYork build your own pizza with three toppings
+     */
     @Test
     void mediumNewYorkByoThreeTopping() {
         Pizza mediumNewYorkByoThreeTopping = nyPizzaFactory.createBuildYourOwn();
@@ -429,6 +569,9 @@ class BuildYourOwnTest {
         assertEquals(mediumNewYorkByoThreeTopping.price(), mediumBuildYourOwnPrice + (toppingPrice * 3));
     }
 
+    /**
+     * Test medium NewYork build your own pizza with four toppings
+     */
     @Test
     void mediumNewYorkByoFourTopping() {
         Pizza mediumNewYorkByoFourTopping = nyPizzaFactory.createBuildYourOwn();
@@ -440,6 +583,9 @@ class BuildYourOwnTest {
         assertEquals(mediumNewYorkByoFourTopping.price(), mediumBuildYourOwnPrice + (toppingPrice * 4));
     }
 
+    /**
+     * Test medium NewYork build your own pizza with five toppings
+     */
     @Test
     void mediumNewYorkByoFiveTopping() {
         Pizza mediumNewYorkByoFiveTopping = nyPizzaFactory.createBuildYourOwn();
@@ -452,6 +598,9 @@ class BuildYourOwnTest {
         assertEquals(mediumNewYorkByoFiveTopping.price(), mediumBuildYourOwnPrice + (toppingPrice * 5));
     }
 
+    /**
+     * Test medium NewYork build your own pizza with six toppings
+     */
     @Test
     void mediumNewYorkByoSixTopping() {
         Pizza mediumNewYorkByoSixTopping = nyPizzaFactory.createBuildYourOwn();
@@ -465,6 +614,9 @@ class BuildYourOwnTest {
         assertEquals(mediumNewYorkByoSixTopping.price(), mediumBuildYourOwnPrice + (toppingPrice * 6));
     }
 
+    /**
+     * Test medium NewYork build your own pizza with seven toppings
+     */
     @Test
     void mediumNewYorkByoSevenTopping() {
         Pizza mediumNewYorkByoSevenTopping = nyPizzaFactory.createBuildYourOwn();
@@ -479,6 +631,10 @@ class BuildYourOwnTest {
         assertEquals(mediumNewYorkByoSevenTopping.price(), mediumBuildYourOwnPrice + (toppingPrice * 7));
     }
 
+    /**
+     * Test medium New York build your own pizza with eight toppings and expect to
+     * return false when we try to add the eighth topping
+     */
     @Test
     void mediumNewYorkByoEightTopping() {
         Pizza mediumNewYorkEightTopping = nyPizzaFactory.createBuildYourOwn();
@@ -492,6 +648,10 @@ class BuildYourOwnTest {
         assertTrue(mediumNewYorkEightTopping.add(Topping.MUSHROOM));
         assertFalse(mediumNewYorkEightTopping.add(Topping.PINEAPPLE));
     }
+
+    /**
+     * Test large NewYork build your own pizza with no toppings
+     */
     @Test
     void largeNewYorkByoNoTopping() {
         Pizza largeNewYorkByoNoTopping = nyPizzaFactory.createBuildYourOwn();
@@ -499,6 +659,9 @@ class BuildYourOwnTest {
         assertEquals(largeNewYorkByoNoTopping.price(), largeBuildYourOwnPrice);
     }
 
+    /**
+     * Test large NewYork build your own pizza with one topping
+     */
     @Test
     void largeNewYorkByoOneTopping() {
         Pizza largeNewYorkByoOneTopping = nyPizzaFactory.createBuildYourOwn();
@@ -507,6 +670,9 @@ class BuildYourOwnTest {
         assertEquals(largeNewYorkByoOneTopping.price(), largeBuildYourOwnPrice + toppingPrice);
     }
 
+    /**
+     * Test large NewYork build your own pizza with two toppings
+     */
     @Test
     void largeNewYorkByoTwoTopping() {
         Pizza largeNewYorkByoTwoTopping = nyPizzaFactory.createBuildYourOwn();
@@ -516,6 +682,9 @@ class BuildYourOwnTest {
         assertEquals(largeNewYorkByoTwoTopping.price(), largeBuildYourOwnPrice + (toppingPrice * 2));
     }
 
+    /**
+     * Test large NewYork build your own pizza with three toppings
+     */
     @Test
     void largeNewYorkByoThreeTopping() {
         Pizza largeNewYorkByoThreeTopping = nyPizzaFactory.createBuildYourOwn();
@@ -526,6 +695,9 @@ class BuildYourOwnTest {
         assertEquals(largeNewYorkByoThreeTopping.price(), largeBuildYourOwnPrice + (toppingPrice * 3));
     }
 
+    /**
+     * Test large NewYork build your own pizza with four toppings
+     */
     @Test
     void largeNewYorkByoFourTopping() {
         Pizza largeNewYorkByoFourTopping = nyPizzaFactory.createBuildYourOwn();
@@ -537,6 +709,9 @@ class BuildYourOwnTest {
         assertEquals(largeNewYorkByoFourTopping.price(), largeBuildYourOwnPrice + (toppingPrice * 4));
     }
 
+    /**
+     * Test large NewYork build your own pizza with five toppings
+     */
     @Test
     void largeNewYorkByoFiveTopping() {
         Pizza largeNewYorkByoFiveTopping = nyPizzaFactory.createBuildYourOwn();
@@ -549,6 +724,9 @@ class BuildYourOwnTest {
         assertEquals(largeNewYorkByoFiveTopping.price(), largeBuildYourOwnPrice + (toppingPrice * 5));
     }
 
+    /**
+     * Test large NewYork build your own pizza with six toppings
+     */
     @Test
     void largeNewYorkByoSixTopping() {
         Pizza largeNewYorkByoSixTopping = nyPizzaFactory.createBuildYourOwn();
@@ -562,6 +740,9 @@ class BuildYourOwnTest {
         assertEquals(largeNewYorkByoSixTopping.price(), largeBuildYourOwnPrice + (toppingPrice * 6));
     }
 
+    /**
+     * Test large NewYork build your own pizza with seven toppings
+     */
     @Test
     void largeNewYorkByoSevenTopping() {
         Pizza largeNewYorkByoSevenTopping = nyPizzaFactory.createBuildYourOwn();
@@ -576,6 +757,10 @@ class BuildYourOwnTest {
         assertEquals(largeNewYorkByoSevenTopping.price(), largeBuildYourOwnPrice + (toppingPrice * 7));
     }
 
+    /**
+     * Test large New York build your own pizza with eight toppings and expect to
+     * return false when we try to add the eighth topping
+     */
     @Test
     void largeNewYorkByoEightTopping() {
         Pizza largeNewYorkByoEightTopping = nyPizzaFactory.createBuildYourOwn();
