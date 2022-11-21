@@ -1,5 +1,9 @@
 package com.example.project4.enums;
 
+/**
+ * Holds enumeration data for crust styles.
+ * @author Aaron Newland, Dylan Pina
+ */
 public enum Crust {
     DEEP_DISH("Deep Dish"),
     PAN("Pan"),
@@ -10,10 +14,18 @@ public enum Crust {
 
     private final String crustName;
 
+    /**
+     * Creates new crust enum object with given crust.
+     * @param crust crust style to create.
+     */
     Crust(String crust) {
         this.crustName = crust;
     }
 
+    /**
+     * Provides a string representation of a Crust object.
+     * @return String of Crust object.
+     */
     @Override
     public String toString() {
         return this.crustName;

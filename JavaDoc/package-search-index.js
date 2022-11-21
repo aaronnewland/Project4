@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.example.project4"},{"l":"com.example.project4.controllers"},{"l":"com.example.project4.enums"},{"l":"com.example.project4.flavors"},{"l":"com.example.project4.interfaces"},{"l":"com.example.project4.pizzastyles"},{"l":"com.example.project4.tests"}];updateSearchResults();
