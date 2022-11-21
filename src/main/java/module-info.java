@@ -3,6 +3,7 @@ module com.example.project4 {
     requires javafx.fxml;
 
     requires org.controlsfx.controls;
+    requires org.junit.jupiter.api;
 
     opens com.example.project4 to javafx.fxml;
     exports com.example.project4;
