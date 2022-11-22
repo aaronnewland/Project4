@@ -10,9 +10,9 @@ import java.util.ArrayList;
  */
 public class Order implements Customizable {
     private static int _orderNumber;
+    private static final double njSalesTaxPercentage = 0.06625;
     private int orderNumber;
     private ArrayList<Pizza> order;
-    private final double njSalesTaxPercentage = 0.06625;
 
     /**
      * Default constructor for a pizza Order.
