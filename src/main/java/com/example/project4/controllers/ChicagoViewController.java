@@ -16,6 +16,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  * Controller for ChicagoView-view.fxml
@@ -37,6 +39,8 @@ public class ChicagoViewController implements Initializable {
     private TextField crustTextField, priceTextField;
     @FXML
     private ListView<Topping> toppingsList, selectedToppingsList;
+    @FXML
+    private ImageView pizzaFlavorImage;
 
     /**
      * Used when view is opened. Sets initial values and fields required for view operation.
@@ -54,6 +58,7 @@ public class ChicagoViewController implements Initializable {
         pizzaFactory = new ChicagoPizza();
         pizza = pizzaFactory.createBuildYourOwn();
         setBuildYourOwn();
+        setPizzaStyleImage();
     }
 
     /**
@@ -70,6 +75,7 @@ public class ChicagoViewController implements Initializable {
             case BUILD_YOUR_OWN -> setBuildYourOwn();
         }
         clearSelectedToppings();
+        setPizzaStyleImage();
     }
 
     /**
@@ -192,6 +198,31 @@ public class ChicagoViewController implements Initializable {
         setCrustTextField(Crust.PAN);
         enableToppings();
         getCalculatedPrice();
+    }
+
+    /**
+     * Gets the pizza style image
+     * @return Image of pizza style
+     */
+    private Image getPizzaStyleImage() {
+        switch (selectedFlavor) {
+            case BUILD_YOUR_OWN:
+                return new Image("images/chicago-style-pizza.png");
+            case BBQ_CHICKEN:
+                return new Image("images/chicago-style-pizza-bbq.jpeg");
+            case MEATZZA:
+                return new Image("images/chicago-style-pizza-meatzza.jpeg");
+            case DELUXE:
+                return new Image("images/chicago-style-pizza-deluxe.jpeg");
+        }
+        return new Image("");
+    }
+
+    /**
+     * Displays the current pizza flavor to the view
+     */
+    private void setPizzaStyleImage() {
+        pizzaFlavorImage.setImage(getPizzaStyleImage());
     }
 
     /**

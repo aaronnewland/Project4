@@ -72,7 +72,7 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <ImageView fitHeight="246.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pizzaFlavorImage" fitHeight="246.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/chicago-style-pizza.png" />
                      </image>

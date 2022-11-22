@@ -6,20 +6,18 @@ import com.example.project4.enums.Flavor;
 import com.example.project4.enums.Size;
 import com.example.project4.enums.Topping;
 import com.example.project4.interfaces.PizzaFactory;
-import com.example.project4.pizzastyles.ChicagoPizza;
 import com.example.project4.pizzastyles.NYPizza;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.Image;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.stream.Stream;
 
 /**
  * Controller for NewYorkView-view.fxml
@@ -35,6 +33,8 @@ public class NewYorkViewController implements Initializable {
 
     @FXML
     private ComboBox<Flavor> flavors;
+    @FXML
+    private ImageView pizzaFlavorImage;
     @FXML
     private RadioButton small, medium, large;
     @FXML
@@ -58,6 +58,7 @@ public class NewYorkViewController implements Initializable {
         pizzaFactory = new NYPizza();
         pizza = pizzaFactory.createBuildYourOwn();
         setBuildYourOwn();
+        setPizzaStyleImage();
     }
 
     /**
@@ -74,6 +75,7 @@ public class NewYorkViewController implements Initializable {
             case BUILD_YOUR_OWN -> setBuildYourOwn();
         }
         clearSelectedToppings();
+        setPizzaStyleImage();
     }
 
     /**
@@ -196,6 +198,31 @@ public class NewYorkViewController implements Initializable {
         setCrustTextField(Crust.HAND_TOSSED);
         enableToppings();
         getCalculatedPrice();
+    }
+
+    /**
+     * Gets the pizza style image
+     * @return Image of pizza style
+     */
+    private Image getPizzaStyleImage() {
+        switch (selectedFlavor) {
+            case BUILD_YOUR_OWN:
+                return new Image("images/nyc-style-pizza.png");
+            case BBQ_CHICKEN:
+                return new Image("images/nyc-style-pizza-bbq.jpeg");
+            case MEATZZA:
+                return new Image("images/nyc-style-pizza-meatzza.jpeg");
+            case DELUXE:
+                return new Image("images/nyc-style-pizza-deluxe.jpeg");
+        }
+        return new Image("");
+    }
+
+    /**
+     * Displays the current pizza flavor to the view
+     */
+    private void setPizzaStyleImage() {
+        pizzaFlavorImage.setImage(getPizzaStyleImage());
     }
 
     /**
