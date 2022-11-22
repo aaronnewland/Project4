@@ -1,13 +1,24 @@
 ORDER: #1
-Build your own (Chicago Style - Pan), Ham, Beef, BBQ Chicken, Sausage, Pepperoni, Green Pepper, Onion, Large, $24.12
-Build your own (Chicago Style - Pan), Ham, Beef, BBQ Chicken, Sausage, Pepperoni, Green Pepper, Onion, Large, $24.12
-Build your own (Chicago Style - Pan), Ham, Beef, BBQ Chicken, Sausage, Pepperoni, Green Pepper, Onion, Large, $24.12
-Build your own (Chicago Style - Pan), Ham, Beef, BBQ Chicken, Sausage, Pepperoni, Green Pepper, Onion, Large, $24.12
-Build your own (Chicago Style - Pan), Ham, Beef, BBQ Chicken, Sausage, Pepperoni, Green Pepper, Onion, Large, $24.12
-Build your own (Chicago Style - Pan), Ham, Beef, BBQ Chicken, Sausage, Pepperoni, Green Pepper, Onion, Large, $24.12
-Build your own (Chicago Style - Pan), Ham, Beef, BBQ Chicken, Sausage, Pepperoni, Green Pepper, Onion, Large, $24.12
-Build your own (Chicago Style - Pan), Ham, Beef, BBQ Chicken, Sausage, Pepperoni, Green Pepper, Onion, Large, $24.12
-Build your own (Chicago Style - Pan), Ham, Beef, BBQ Chicken, Sausage, Pepperoni, Green Pepper, Onion, Large, $24.12
-Build your own (Chicago Style - Pan), Ham, Beef, BBQ Chicken, Sausage, Pepperoni, Green Pepper, Onion, Large, $24.12
-[SUBTOTAL: $240.0 | SALES TAX: $ 15.9 | ORDER TOTAL: $255.9]
+Build your own (Chicago Style - Pan), Onion, Green Pepper, Pepperoni, Ham, Large, $19.35
+Build your own (Chicago Style - Pan), Onion, Green Pepper, Pepperoni, Ham, Large, $19.35
+Build your own (Chicago Style - Pan), Onion, Green Pepper, Pepperoni, Ham, Large, $19.35
+Build your own (Chicago Style - Pan), Onion, Green Pepper, Pepperoni, Ham, Large, $19.35
+Build your own (Chicago Style - Pan), Onion, Green Pepper, Pepperoni, Ham, Large, $19.35
+Build your own (Chicago Style - Pan), Onion, Green Pepper, Pepperoni, Ham, Large, $19.35
+Build your own (Chicago Style - Pan), Onion, Green Pepper, Pepperoni, Ham, Large, $19.35
+Build your own (Chicago Style - Pan), Onion, Green Pepper, Pepperoni, Ham, Large, $19.35
+Build your own (Chicago Style - Pan), Onion, Green Pepper, Pepperoni, Ham, Large, $19.35
+Build your own (Chicago Style - Pan), Onion, Green Pepper, Pepperoni, Ham, Large, $19.35
+Build your own (New York Style - Hand Tossed), Beef, BBQ Chicken, Large, $16.17
+Build your own (New York Style - Hand Tossed), Beef, BBQ Chicken, Large, $16.17
+Build your own (New York Style - Hand Tossed), Beef, BBQ Chicken, Large, $16.17
+Build your own (New York Style - Hand Tossed), Beef, BBQ Chicken, Large, $16.17
+Build your own (New York Style - Hand Tossed), Beef, BBQ Chicken, Large, $16.17
+Build your own (New York Style - Hand Tossed), Beef, BBQ Chicken, Large, $16.17
+[SUBTOTAL: $286.00 | SALES TAX: $ 18.95 | ORDER TOTAL: $304.95]
+
+ORDER: #2
+BBQ Chicken (Chicago Style - Pan), Large, $17.99
+BBQ Chicken (Chicago Style - Pan), Large, $17.99
+[SUBTOTAL: $34.00 | SALES TAX: $ 2.25 | ORDER TOTAL: $36.25]
 

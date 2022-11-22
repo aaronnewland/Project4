@@ -71,8 +71,8 @@ public class StoreOrder implements Customizable {
         orders.forEach(order -> {
             pw.println("ORDER: #" + order.getOrderNumber());
             pw.println(order);
-            pw.println("[SUBTOTAL: $" + order.getSubtotal() + " | SALES TAX: $ " + order.getSalesTax() +
-                    " | ORDER TOTAL: $" + order.getOrderTotal() + "]\n");
+            pw.println("[SUBTOTAL: $" +  String.format("%.2f", order.getSubtotal()) + " | SALES TAX: $ " +  String.format("%.2f", order.getSalesTax()) +
+                    " | ORDER TOTAL: $" + String.format("%.2f", order.getOrderTotal()) + "]\n");
         });
         pw.close();
     }
